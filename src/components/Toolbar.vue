@@ -1,45 +1,61 @@
 <template>
-  <div class="h-12 bg-white border-b border-gray-200 flex items-center justify-between px-4">
-    <div class="flex items-center gap-2">
+  <div class="h-16 bg-[rgba(30,41,59,0.9)] backdrop-blur-xl border-b border-[rgba(71,85,105,0.5)] flex items-center justify-between px-6 shadow-soft">
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3 mr-8">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center shadow-glow">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <span class="font-semibold text-lg text-[#f8fafc]">PhotoOrganizer</span>
+      </div>
+
+      <div class="h-8 w-px bg-[rgba(71,85,105,0.5)] mx-2"></div>
+
       <button
-        class="flex items-center gap-1 px-3 py-1.5 rounded hover:bg-gray-100 transition-colors"
+        class="flex items-center gap-2 px-4 py-2 rounded-xl bg-[rgba(51,65,85,0.5)] hover:bg-[rgba(51,65,85,0.8)] transition-all duration-300 border border-transparent hover:border-[rgba(99,102,241,0.3)] group"
         @click="selectAll"
       >
-        <CheckSquare class="w-4 h-4" />
-        <span class="text-sm">全选</span>
+        <CheckSquare class="w-4 h-4 text-[#cbd5e1] group-hover:text-[#6366f1] transition-colors" />
+        <span class="text-sm font-medium text-[#cbd5e1] group-hover:text-[#f8fafc]">全选</span>
       </button>
+
       <button
-        class="flex items-center gap-1 px-3 py-1.5 rounded hover:bg-gray-100 transition-colors"
+        class="flex items-center gap-2 px-4 py-2 rounded-xl bg-[rgba(51,65,85,0.5)] hover:bg-[rgba(51,65,85,0.8)] transition-all duration-300 border border-transparent hover:border-[rgba(148,163,184,0.3)] group"
         @click="clearSelection"
       >
-        <Square class="w-4 h-4" />
-        <span class="text-sm">取消选择</span>
+        <Square class="w-4 h-4 text-[#cbd5e1] group-hover:text-[#94a3b8] transition-colors" />
+        <span class="text-sm font-medium text-[#cbd5e1] group-hover:text-[#f8fafc]">取消选择</span>
       </button>
-      <div class="w-px h-6 bg-gray-200 mx-2"></div>
+
+      <div class="h-8 w-px bg-[rgba(71,85,105,0.5)] mx-2"></div>
+
       <button
-        class="flex items-center gap-1 px-3 py-1.5 rounded hover:bg-gray-100 transition-colors"
+        class="flex items-center gap-2 px-4 py-2 rounded-xl bg-[rgba(239,68,68,0.1)] hover:bg-[rgba(239,68,68,0.2)] transition-all duration-300 border border-transparent hover:border-[rgba(239,68,68,0.3)] group"
         @click="showDuplicates"
       >
-        <AlertCircle class="w-4 h-4 text-red-500" />
-        <span class="text-sm">显示重复 ({{ duplicateCount }})</span>
+        <AlertCircle class="w-4 h-4 text-[#ef4444]" />
+        <span class="text-sm font-medium text-[#ef4444]">显示重复 ({{ duplicateCount }})</span>
       </button>
     </div>
 
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-3">
       <button
-        class="flex items-center gap-1 px-3 py-1.5 rounded hover:bg-gray-100 transition-colors"
+        class="flex items-center gap-2 px-4 py-2 rounded-xl bg-[rgba(51,65,85,0.5)] hover:bg-[rgba(51,65,85,0.8)] transition-all duration-300 border border-transparent hover:border-[rgba(148,163,184,0.3)] group"
         @click="previewSelected"
       >
-        <Eye class="w-4 h-4" />
-        <span class="text-sm">预览</span>
+        <Eye class="w-4 h-4 text-[#cbd5e1] group-hover:text-[#14b8a6] transition-colors" />
+        <span class="text-sm font-medium text-[#cbd5e1] group-hover:text-[#f8fafc]">预览</span>
       </button>
-      <div class="w-px h-6 bg-gray-200 mx-2"></div>
+
+      <div class="h-8 w-px bg-[rgba(71,85,105,0.5)] mx-2"></div>
+
       <button
-        class="flex items-center gap-1 px-4 py-1.5 rounded bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+        class="flex items-center gap-2 px-6 py-2.5 rounded-xl btn-primary text-white font-medium"
         @click="startExport"
       >
         <Download class="w-4 h-4" />
-        <span class="text-sm">导出</span>
+        <span>导出</span>
       </button>
     </div>
   </div>
